@@ -31,9 +31,9 @@ Ej: API Backend. Swagger
 - alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 - sail up
 
-## Swagger URL
+## Run test
 
-- {url}/api/documentation
+- php artisan test
 
 ## Librerias y Requerimientos
 - PHP ^8.0.2
