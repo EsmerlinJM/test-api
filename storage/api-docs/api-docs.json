@@ -1,0 +1,159 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentación API ",
+        "description": "Documentación API ",
+        "contact": {
+            "name": "API Support"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/contacts": {
+            "get": {
+                "tags": [
+                    "API"
+                ],
+                "description": "List all contacts paginated",
+                "operationId": "listPaises",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search by name, lastname, phone number or address",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/contacts/register": {
+            "post": {
+                "tags": [
+                    "API"
+                ],
+                "description": "Register contact info with phone numbers and address",
+                "operationId": "1ce5c73c230d894733e400fc6dee07c4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "phones",
+                                    "addresses"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Juan "
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Perez Ortiz"
+                                    },
+                                    "phones": {
+                                        "description": "Store phones",
+                                        "type": "array",
+                                        "items": {
+                                            "description": "Phones",
+                                            "type": "string",
+                                            "example": "829-999-9999"
+                                        }
+                                    },
+                                    "addresses": {
+                                        "description": "Store address",
+                                        "type": "array",
+                                        "items": {
+                                            "description": "Phones",
+                                            "type": "string",
+                                            "example": "Calle#1"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
