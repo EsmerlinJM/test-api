@@ -34,6 +34,13 @@ class UserRepository extends Repository implements IUserRepository {
         return User::class;
     }
 
+    /**
+     * Get all contacts with information paginated.
+     *
+     * @param array $attributes
+     * 
+     * @return array
+     */
     public function getContactsInformationPaginated($request) {
         $sort = $request->sort ? $request->sort : 'created_at';
         $order = $request->order ? $request->order : 'asc';
@@ -51,6 +58,12 @@ class UserRepository extends Repository implements IUserRepository {
         ];
     }
 
+    /**
+     * Create many resources.
+     *
+     * @param array $input
+     * @param object $model
+     */
     public function createMany($input, $model) {
         $query = [];
 

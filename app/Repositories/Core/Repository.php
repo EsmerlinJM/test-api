@@ -198,6 +198,13 @@ abstract class Repository implements IRepository {
         return $this->model->where($field, $value)->first($columns);
     }
 
+    /**
+     * Get relationships of model.
+     *
+     * @param array $relationship
+     * 
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
     public function with($relationship)
     {
         return $this->model->with($relationship);

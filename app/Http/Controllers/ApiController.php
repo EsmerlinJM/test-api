@@ -11,20 +11,21 @@ use Illuminate\Support\Facades\Redis;
 
 class ApiController extends Controller
 {
-    private readonly UserRepository $userRepository;
+    /**
+     * @var UserRepository $userRepository
+     */
+    private UserRepository $userRepository;
 
     public function __construct(UserRepository $userRepo) {
         $this->userRepository = $userRepo;
     }
-
 
      /**
      * @OA\Get(
      *     tags={"API"},
      *     path="/api/v1/contacts",
      *     description="List all contacts paginated",
-     *     security={{"token": {}}},
-     *     operationId="listPaises",
+     *     operationId="getContacts",
      * @OA\Parameter(
      *         name="search",
      *         in="query",

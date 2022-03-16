@@ -15,7 +15,7 @@
                     "API"
                 ],
                 "description": "List all contacts paginated",
-                "operationId": "listPaises",
+                "operationId": "getContacts",
                 "parameters": [
                     {
                         "name": "search",
@@ -57,12 +57,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
+                }
             }
         },
         "/api/v1/contacts/register": {
